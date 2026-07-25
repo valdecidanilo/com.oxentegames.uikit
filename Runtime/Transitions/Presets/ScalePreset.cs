@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-namespace CustomButton.Utils
+namespace OxenteGames.UI.Transitions
 {
-    [CreateAssetMenu(fileName = "new Scale Preset", menuName = "Custom Button/Presets/Scale Animation", order = 0)]
+    [CreateAssetMenu(fileName = "ScalePreset", menuName = "Oxente UI/Transitions/Scale Preset")]
     public class ScalePreset : CoroutineAnimationPreset
     {
         [SerializeField] private Vector3 scaleDirection = Vector3.one;

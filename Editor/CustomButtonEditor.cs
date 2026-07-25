@@ -5,11 +5,11 @@ using UnityEngine.UIElements;
 using UnityEditor.UIElements;
 using System.Collections.Generic;
 
-namespace CustomButton
+namespace OxenteGames.UI.Editor
 {
     [CanEditMultipleObjects]
-    [CustomEditor(typeof(CustomButtonClass))]
-    public class CustomButtonEditor : Editor
+    [CustomEditor(typeof(CustomButton), true)]
+    public class CustomButtonEditor : UnityEditor.Editor
     {
         private Texture2D customIcon;
         private Texture2D circleIcon;
@@ -19,7 +19,7 @@ namespace CustomButton
         private SerializedProperty onClickProperty;
 
         //Cache
-        private CustomButtonBase customButton;
+        private CustomButton customButton;
         private UnityEngine.UI.Graphic currentGraphic;
 
         private void OnEnable()
@@ -40,7 +40,7 @@ namespace CustomButton
         {
             #region Setup
             serializedObject.Update();
-            customButton = target as CustomButtonBase;
+            customButton = target as CustomButton;
             EditorGUIUtility.SetIconForObject(target, customIcon);
             #endregion
 
@@ -53,7 +53,7 @@ namespace CustomButton
             PropertyField filter = new PropertyField(filterProperty);
             root.Add(filter);
 
-            SerializedProperty transition = serializedObject.FindProperty(nameof(CustomButtonBase.Transition));
+            SerializedProperty transition = serializedObject.FindProperty(nameof(CustomButton.Transition));
             PropertyField transitionField = new PropertyField(transition);
             transitionField.RegisterValueChangeCallback(_ => customButton.UpdateButtonState());
             root.Add(transitionField);

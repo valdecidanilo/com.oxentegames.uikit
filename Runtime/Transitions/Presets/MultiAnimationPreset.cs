@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace CustomButton.Utils
+namespace OxenteGames.UI.Transitions
 {
-    [CreateAssetMenu(fileName = "MultiAnimationPreset", menuName = "Custom Button/Presets/MultiAnimationPreset")]
+    [CreateAssetMenu(fileName = "MultiAnimationPreset", menuName = "Oxente UI/Transitions/Multi Animation Preset")]
     public class MultiAnimationPreset : AnimationPreset
     {
         [Header("Above parameters don't work"),SerializeField, Space(10)] AnimationPreset[] presets;

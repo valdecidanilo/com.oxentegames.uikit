@@ -3,13 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Scripting.APIUpdating;
 using UnityEngine.UI;
 
-namespace CustomButton
+namespace OxenteGames.UI
 {
     //[ExecuteAlways]
+    [MovedFrom(true, sourceNamespace: "CustomButton", sourceAssembly: "CustomButton", sourceClassName: "CustomButtonBase")]
+    [AddComponentMenu("UI (Canvas)/Oxente UI/Custom Button", 31)]
     [RequireComponent(typeof(Image)), ExecuteInEditMode]
-    public abstract class CustomButtonBase : MonoBehaviour, ICustomButton
+    public class CustomButton : MonoBehaviour, ICustomButton
     {
         public RectTransform rectTransform;
 

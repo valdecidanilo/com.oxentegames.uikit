@@ -1,9 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
-namespace CustomButton.Utils
+namespace OxenteGames.UI.Transitions
 {
-    [CreateAssetMenu(fileName = "new Shake Preset", menuName = "Custom Button/Presets/Shake Animation", order = 0)]
+    [CreateAssetMenu(fileName = "ShakePreset", menuName = "Oxente UI/Transitions/Shake Preset")]
     public class ShakePreset : CoroutineAnimationPreset
     {
 

@@ -1,12 +1,11 @@
-using CustomButton;
-using CustomButton.Utils;
+using OxenteGames.UI.Transitions;
 using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace CustomButton
+namespace OxenteGames.UI
 {
     [Serializable]
     public class StateTransition<T> where T : Enum

@@ -1,6 +1,6 @@
 using UnityEngine.EventSystems;
 
-namespace CustomButton
+namespace OxenteGames.UI
 {
     public interface ICustomButton : ISubmitHandler, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler,
         IPointerEnterHandler, IPointerExitHandler, IDeselectHandler

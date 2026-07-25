@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace CustomButton.Utils
+namespace OxenteGames.UI.Transitions
 {
     public abstract class CoroutineAnimationPreset : AnimationPreset
     {

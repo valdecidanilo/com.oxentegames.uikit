@@ -1,9 +1,9 @@
-using CustomButton.Utils;
+using OxenteGames.UI.Transitions;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace CustomButton
+namespace OxenteGames.UI
 {
     [Serializable]
     public class GraphicState

@@ -1,5 +1,5 @@
 #if UNITY_EDITOR
-using CustomButton.Utils;
+using OxenteGames.UI.Transitions;
 using System;
 using System.Collections.Generic;
 using UnityEditor;
@@ -7,7 +7,7 @@ using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace CustomButton
+namespace OxenteGames.UI.Editor
 {
     [CustomPropertyDrawer(typeof(StateTransition<>))]
     public class StateTransitionDrawer: PropertyDrawer
