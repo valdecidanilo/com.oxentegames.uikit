@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/valdecidanilo/com.oxentegames.uikit/compare/v1.0.0...v1.1.0) (2026-07-25)
+
+
+### Features
+
+* Rebrand to Oxente UI Kit and add controls ([1b34710](https://github.com/valdecidanilo/com.oxentegames.uikit/commit/1b34710bc2fdeca208c7e11f1aa298d00e088dcc))
+
 # 1.0.0 (2026-07-25)
 
 

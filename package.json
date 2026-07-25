@@ -1,7 +1,7 @@
 {
   "name": "com.oxentegames.uikit",
   "displayName": "Oxente UI Kit",
-  "version": "2.0.0",
+  "version": "1.1.0",
   "unity": "6000.0",
   "unityRelease": "23f1",
   "description": "A production-ready collection of reusable controls and transitions for Unity UGUI.",
