@@ -74,11 +74,11 @@ public static class UIToolkitExtensions
             else if (scrollView.mode == ScrollViewMode.Vertical) delta.x = 0f;
 
             //clamp drag
-            Vector3 position = content.transform.position + delta;
+            Vector3 position = content.resolvedStyle.translate + delta;
             position.x = Mathf.Clamp(position.x, 0, -maxMovement.x);
             position.y = Mathf.Clamp(position.y, -maxMovement.y, 0);
 
-            content.transform.position = position;
+            content.style.translate = new Translate(position.x, position.y);
         });
         root.RegisterCallback<PointerUpEvent>((evt) =>
         {
@@ -107,7 +107,8 @@ public static class UIToolkitExtensions
             if (scrollView.mode == ScrollViewMode.Horizontal) delta.y = 0f;
             else if (scrollView.mode == ScrollViewMode.Vertical) delta.x = 0f;
 
-            if (scrollView.contentContainer.transform.position.y < 0)
+            float contentPositionY = scrollView.contentContainer.resolvedStyle.translate.y;
+            if (contentPositionY < 0)
             {
                 //top shade
                 scrollView.style.borderTopColor = ColorExtensions.TransparentBlack(transparency);
@@ -117,7 +118,7 @@ public static class UIToolkitExtensions
                 scrollView.style.borderTopColor = ColorExtensions.TransparentBlack(0);
             }
 
-            if (scrollView.contentContainer.transform.position.y > -maxMovement.y)
+            if (contentPositionY > -maxMovement.y)
             {
                 //top shade
                 scrollView.style.borderBottomColor = ColorExtensions.TransparentBlack(transparency);

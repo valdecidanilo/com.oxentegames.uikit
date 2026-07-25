@@ -92,7 +92,7 @@ namespace CustomButton
         private static Canvas FindCanvasInHierarchy(MenuCommand menuCommand)
         {
             Canvas foundCanvas = null;
-            var canvases = FindObjectsOfType<Canvas>();
+            var canvases = FindObjectsByType<Canvas>(FindObjectsSortMode.None);
             foreach (var canvas in canvases)
             {
                 if (!canvas.isActiveAndEnabled) continue;
@@ -106,7 +106,7 @@ namespace CustomButton
             }
             
             //look for eventSystem
-            if(!FindFirstObjectByType<EventSystem>()) CreateEventSystem();
+            if(!FindAnyObjectByType<EventSystem>()) CreateEventSystem();
             
             return foundCanvas;
         }

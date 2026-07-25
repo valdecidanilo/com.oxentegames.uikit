@@ -6,8 +6,11 @@
   "unityRelease": "23f1",
   "description": "A custom button package for Unity",
   "author": {
-    "name": "valdeci danilo",
+    "name": "Valdeci Danilo",
     "email": "valdecidanilo@live.com"
+  },
+  "dependencies": {
+    "com.unity.ugui": "2.0.0"
   },
   "keywords": [
     "custom",
@@ -19,8 +22,7 @@
     {
       "displayName": "Custom Button Samples",
       "description": "Samples for the Custom Button package",
-      "path": "Samples/Overview"
+      "path": "Samples~/Overview"
     }
-  ],
-  "preview": true
+  ]
 }
