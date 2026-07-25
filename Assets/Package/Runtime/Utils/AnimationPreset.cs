@@ -1,11 +1,19 @@
 using UnityEngine;
-namespace CustomButton.Utils {
-    public class AnimationPreset : ScriptableObject {
-        public AnimationStyle animationStyle;
+namespace CustomButton.Utils 
+{
+    public abstract class AnimationPreset : ScriptableObject 
+    {
+        [Min(0.01f)] public float duration;
+        [Tooltip("Make sure to verify the AnimationCurve loop type")]public bool loopAnimation = false;
+        public float magnitude;
+        public AnimationCurve curve = AnimationCurve.Linear(0, 0, 1, 1);
 
-        [Range(0.1f,1f)] public float duration;
-        [Range(0.1f,99f)] public float speed;
-        [Range(1.1f,50f)] public float magnitude;
+        protected float curveStart => curve[0].time;
+        protected float curveEnd => curve.keys[^1].time;
+        protected float curveDuration => curveEnd - curveStart;
+
+        public abstract void StartAnimation(MonoBehaviour button);
+        public abstract void StopAnimation(MonoBehaviour button);
     }
     
 }
