@@ -1,0 +1,51 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+      - name: Validate package manifest
+        shell: pwsh
+        run: |
+          $package = Get-Content -Raw package.json | ConvertFrom-Json
+          if ($package.name -ne "com.notask.custom-button") {
+            throw "Unexpected package name: $($package.name)"
+          }
+          if (-not (Test-Path Runtime/CustomButton.asmdef)) {
+            throw "Runtime assembly definition not found."
+          }
+      - name: Semantic release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npx --yes \
+            --package semantic-release@25 \
+            --package @semantic-release/commit-analyzer \
+            --package @semantic-release/release-notes-generator \
+            --package @semantic-release/changelog \
+            --package @semantic-release/npm \
+            --package @semantic-release/git \
+            --package @semantic-release/github \
+            semantic-release
