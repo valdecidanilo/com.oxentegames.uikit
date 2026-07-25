@@ -1,10 +1,13 @@
 {
-    "name": "CustomButton",
-    "rootNamespace": "",
+    "name": "OxenteGames.UI.Editor",
+    "rootNamespace": "OxenteGames.UI.Editor",
     "references": [
+        "GUID:dbcf87e4e0480914e950d417252f5d75",
         "GUID:6055be8ebefd69e48b49212b09b47b2f"
     ],
-    "includePlatforms": [],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

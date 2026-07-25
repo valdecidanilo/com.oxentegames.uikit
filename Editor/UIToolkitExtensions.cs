@@ -4,34 +4,36 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using PointerType = UnityEngine.UIElements.PointerType;
 
-public static class UIToolkitExtensions
+namespace OxenteGames.UI.Editor
 {
-    #region GemeralVisualElement
-    public static VisualElement GetRoot(this VisualElement visualElement)
+    public static class UIToolkitExtensions
     {
-        VisualElement root = visualElement;
-        while (root.parent != null) root = root.parent;
-        return root;
-    }
+        #region GemeralVisualElement
+        public static VisualElement GetRoot(this VisualElement visualElement)
+        {
+            VisualElement root = visualElement;
+            while (root.parent != null) root = root.parent;
+            return root;
+        }
 
-    public static void SetPadding(this VisualElement visualElement, int borderWidth)
-    {
+        public static void SetPadding(this VisualElement visualElement, int borderWidth)
+        {
         visualElement.style.paddingTop = borderWidth;
         visualElement.style.paddingBottom = borderWidth;
         visualElement.style.paddingLeft = borderWidth;
         visualElement.style.paddingRight = borderWidth;
-    }
+        }
 
-    public static void SetMargin(this VisualElement visualElement, int borderWidth)
-    {
+        public static void SetMargin(this VisualElement visualElement, int borderWidth)
+        {
         visualElement.style.marginTop = borderWidth;
         visualElement.style.marginBottom = borderWidth;
         visualElement.style.marginLeft = borderWidth;
         visualElement.style.marginRight = borderWidth;
-    }
+        }
 
-    public static void SetBorder(this VisualElement visualElement, int borderWidth, int curvature = 0, Color? borderColor = null)
-    {
+        public static void SetBorder(this VisualElement visualElement, int borderWidth, int curvature = 0, Color? borderColor = null)
+        {
         //size
         visualElement.style.borderTopWidth = borderWidth;
         visualElement.style.borderBottomWidth = borderWidth;
@@ -50,11 +52,11 @@ public static class UIToolkitExtensions
         visualElement.style.borderTopRightRadius = curvature;
         visualElement.style.borderBottomLeftRadius = curvature;
         visualElement.style.borderBottomRightRadius = curvature;
-    }
-    #endregion
+        }
+        #endregion
 
-    public static void EnableMouseDrag(this ScrollView scrollView)
-    {
+        public static void EnableMouseDrag(this ScrollView scrollView)
+        {
         VisualElement root = scrollView.GetRoot();
         bool dragging = false;
         Vector2 maxMovement = Vector2.zero;
@@ -84,9 +86,9 @@ public static class UIToolkitExtensions
         {
             dragging = false;
         });
-    }
-    public static void IndicateMoreContent(this ScrollView scrollView, float transparency)
-    {
+        }
+        public static void IndicateMoreContent(this ScrollView scrollView, float transparency)
+        {
         VisualElement root = scrollView.GetRoot();
         bool dragging = false;
         Vector2 maxMovement = Vector2.zero;
@@ -133,5 +135,6 @@ public static class UIToolkitExtensions
         {
             dragging = false;
         });
+        }
     }
 }

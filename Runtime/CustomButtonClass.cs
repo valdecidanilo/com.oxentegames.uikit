@@ -1,10 +1,13 @@
+using System;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.Scripting.APIUpdating;
 
-namespace CustomButton
+namespace OxenteGames.UI
 {
-    [AddComponentMenu("UI/Custom Button", 31)]
-    public class CustomButtonClass : CustomButtonBase
+    [MovedFrom(true, sourceNamespace: "CustomButton", sourceAssembly: "CustomButton", sourceClassName: "CustomButtonClass")]
+    [Obsolete("CustomButtonClass is kept only for serialized compatibility. Use CustomButton instead.", false)]
+    [AddComponentMenu("")]
+    public sealed class CustomButtonClass : CustomButton
     {
     }
 }

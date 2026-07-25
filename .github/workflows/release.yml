@@ -30,11 +30,14 @@ jobs:
         shell: pwsh
         run: |
           $package = Get-Content -Raw package.json | ConvertFrom-Json
-          if ($package.name -ne "com.notask.custom-button") {
+          if ($package.name -ne "com.oxentegames.uikit") {
             throw "Unexpected package name: $($package.name)"
           }
-          if (-not (Test-Path Runtime/CustomButton.asmdef)) {
+          if (-not (Test-Path Runtime/OxenteGames.UI.Runtime.asmdef)) {
             throw "Runtime assembly definition not found."
+          }
+          if (-not (Test-Path Editor/OxenteGames.UI.Editor.asmdef)) {
+            throw "Editor assembly definition not found."
           }
       - name: Semantic release
         env:

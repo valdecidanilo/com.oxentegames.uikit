@@ -942,7 +942,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1625614429}
-        m_TargetAssemblyTypeName: CustomButton.CustomButtonBase, CustomButton
+        m_TargetAssemblyTypeName: OxenteGames.UI.CustomButton, OxenteGames.UI.Runtime
         m_MethodName: ToogleInteractable
         m_Mode: 1
         m_Arguments:
@@ -2562,7 +2562,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1874645484}
-        m_TargetAssemblyTypeName: CustomButton.CustomButtonBase, CustomButton
+        m_TargetAssemblyTypeName: OxenteGames.UI.CustomButton, OxenteGames.UI.Runtime
         m_MethodName: ToogleInteractable
         m_Mode: 1
         m_Arguments:
@@ -4511,7 +4511,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1095487830}
-        m_TargetAssemblyTypeName: CustomButton.CustomButtonBase, CustomButton
+        m_TargetAssemblyTypeName: OxenteGames.UI.CustomButton, OxenteGames.UI.Runtime
         m_MethodName: ToogleInteractable
         m_Mode: 1
         m_Arguments:

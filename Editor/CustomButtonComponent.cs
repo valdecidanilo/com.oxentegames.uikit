@@ -1,23 +1,23 @@
 #if UNITY_EDITOR
-using CustomButton.Utils;
+using OxenteGames.UI.Transitions;
 using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-namespace CustomButton
+namespace OxenteGames.UI.Editor
 {
     public abstract class CustomButtonComponent : EditorWindow
     {
-        [MenuItem("GameObject/UI/Custom Button - TextMeshPro", false, 31)]
-        private static void AddCustomButtonTMPro(MenuCommand menuCommand)
+        [MenuItem("GameObject/UI (Canvas)/Oxente UI/Custom Button", false, 31)]
+        private static void AddCustomButton(MenuCommand menuCommand)
         {
             /* TODO: Verificação para substituir
             var shouldDestroy = EditorUtility.DisplayDialog("Aviso", "Já existe uma instância do CustomButton. Deseja substituí-la?", "Sim", "Não");
             if (shouldDestroy)
             {
                 // Destruir a instância mais recente
-                var existingButtons = FindObjectsOfType<CustomButtonBase>();
+                var existingButtons = FindObjectsOfType<CustomButton>();
                 if (existingButtons.Length > 0)
                 {
                     DestroyImmediate(existingButtons[existingButtons.Length - 1].gameObject);
@@ -45,8 +45,6 @@ namespace CustomButton
             var buttonObjectRT = customButtonObject.AddComponent<RectTransform>();
             var textRT = textObject.AddComponent<RectTransform>();
             
-            TMP_Text text = textObject.AddComponent<TextMeshProUGUI>();
-            
             ApplySpriteButton(customButtonObject.TryGetComponent(out Image image) ? image : customButtonObject.AddComponent<Image>());
             buttonObjectRT.sizeDelta = new Vector2(160f, 30f);
             textRT.sizeDelta = Vector2.zero;
@@ -63,12 +61,9 @@ namespace CustomButton
                 textObject.transform.SetParent(customButtonObject.transform, false);
             }
 
-            text.fontSize = 17;
-            text.alignment = TextAlignmentOptions.Center;
-            text.color = ColorUtility.TryParseHtmlString("#323232", out var color) ? color : Color.black;
-            text.SetText("Custom Button");
+            ConfigureLabel(textObject);
             
-            var custombutton = customButtonObject.AddComponent<CustomButtonClass>();
+            var custombutton = customButtonObject.AddComponent<CustomButton>();
             const string assetShake = "DefaultPresets/ShakePreset";
             var defaultPreset = Resources.Load<AnimationPreset>(assetShake);
 
@@ -76,6 +71,35 @@ namespace CustomButton
             Undo.RegisterCreatedObjectUndo(customButtonObject, "Create " + customButtonObject.name);
             custombutton.OnTransformChildrenChanged();
             
+        }
+
+        private static void ConfigureLabel(GameObject textObject)
+        {
+            var color = ColorUtility.TryParseHtmlString("#323232", out var parsedColor)
+                ? parsedColor
+                : Color.black;
+
+            var tmpSettings = Resources.Load<TMP_Settings>("TMP Settings");
+            if (tmpSettings)
+            {
+                var text = textObject.AddComponent<TextMeshProUGUI>();
+                text.fontSize = 17;
+                text.alignment = TextAlignmentOptions.Center;
+                text.color = color;
+                text.text = "Custom Button";
+                return;
+            }
+
+            var legacyText = textObject.AddComponent<Text>();
+            legacyText.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+            legacyText.fontSize = 17;
+            legacyText.alignment = TextAnchor.MiddleCenter;
+            legacyText.color = color;
+            legacyText.text = "Custom Button";
+
+            Debug.LogWarning(
+                "[Oxente UI] TMP Essential Resources were not found. " +
+                "The Custom Button label was created with Unity UI Text.");
         }
         private static void ApplySpriteButton(Image image)
         {
@@ -92,7 +116,7 @@ namespace CustomButton
         private static Canvas FindCanvasInHierarchy(MenuCommand menuCommand)
         {
             Canvas foundCanvas = null;
-            var canvases = FindObjectsByType<Canvas>(FindObjectsSortMode.None);
+            var canvases = FindObjectsByType<Canvas>(FindObjectsInactive.Exclude);
             foreach (var canvas in canvases)
             {
                 if (!canvas.isActiveAndEnabled) continue;

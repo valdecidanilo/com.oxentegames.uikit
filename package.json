@@ -1,27 +1,37 @@
 {
-  "name": "com.notask.custom-button",
-  "displayName": "Custom Button",
-  "version": "1.2.1",
+  "name": "com.oxentegames.uikit",
+  "displayName": "Oxente UI Kit",
+  "version": "2.0.0",
   "unity": "6000.0",
   "unityRelease": "23f1",
-  "description": "A custom button package for Unity",
+  "description": "A production-ready collection of reusable controls and transitions for Unity UGUI.",
   "author": {
     "name": "Valdeci Danilo",
-    "email": "valdecidanilo@live.com"
+    "email": "valdecidanilo@live.com",
+    "url": "https://github.com/valdecidanilo"
   },
   "dependencies": {
     "com.unity.ugui": "2.0.0"
   },
   "keywords": [
-    "custom",
+    "ui",
+    "ugui",
+    "ui-kit",
+    "controls",
     "button",
-    "preview",
-    "unity"
+    "range-slider",
+    "switch"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/valdecidanilo/com.oxentegames.custombutton.git"
+  },
+  "documentationUrl": "https://github.com/valdecidanilo/com.oxentegames.custombutton#readme",
+  "changelogUrl": "https://github.com/valdecidanilo/com.oxentegames.custombutton/blob/latest/CHANGELOG.md",
   "samples": [
     {
-      "displayName": "Custom Button Samples",
-      "description": "Samples for the Custom Button package",
+      "displayName": "Oxente UI Kit Overview",
+      "description": "Overview scene demonstrating Oxente UI controls and transitions.",
       "path": "Samples~/Overview"
     }
   ]

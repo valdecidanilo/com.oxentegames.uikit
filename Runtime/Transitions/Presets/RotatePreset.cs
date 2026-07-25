@@ -1,28 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
-namespace CustomButton.Utils
+namespace OxenteGames.UI.Transitions
 {
-    [CreateAssetMenu(fileName = "MovePreset", menuName = "Custom Button/Presets/MovePreset")]
-    public class MovePreset : CoroutineAnimationPreset
+    [CreateAssetMenu(fileName = "RotatePreset", menuName = "Oxente UI/Transitions/Rotate Preset")]
+    public class RotatePreset : CoroutineAnimationPreset
     {
-        [SerializeField] private Vector2 moveDirection = Vector2.one;
+        [SerializeField] private Vector3 rotationAxis = Vector3.forward;
 
         public override void StartAnimation(MonoBehaviour button)
         {
             RectTransform rectTransform = (RectTransform)button.transform;
-            var originalPosition = rectTransform.anchoredPosition;
+            var originalRotation = rectTransform.eulerAngles;
             base.StartAnimation(button);
 
-            stopSequence[button] += () => rectTransform.anchoredPosition = originalPosition;
+            stopSequence[button] += () => rectTransform.eulerAngles = originalRotation;
         }
 
         protected override IEnumerator AnimationCoroutine(MonoBehaviour button)
         {
             RectTransform rectTransform = (RectTransform)button.transform;
-            var originalPosition = rectTransform.anchoredPosition;
-            var targetPosition = originalPosition + (moveDirection * magnitude);
+            var originalRotation = rectTransform.eulerAngles;
+            var targetRotation = originalRotation + (rotationAxis * magnitude);
             var elapsedTime = 0f;
             float startOffset = curveStart;
             float animationDuration = curveDuration;
@@ -31,7 +30,7 @@ namespace CustomButton.Utils
             {
                 float currentTime = elapsedTime / duration;
                 float t = curve.Evaluate((currentTime / animationDuration) + startOffset);
-                rectTransform.anchoredPosition = originalPosition + (targetPosition - originalPosition) * t;
+                rectTransform.eulerAngles = originalRotation + (targetRotation - originalRotation) * t;
 
                 elapsedTime += Time.deltaTime;
                 yield return null;

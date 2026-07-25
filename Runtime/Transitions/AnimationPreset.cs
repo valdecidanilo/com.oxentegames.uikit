@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace CustomButton.Utils 
+namespace OxenteGames.UI.Transitions
 {
     public abstract class AnimationPreset : ScriptableObject 
     {

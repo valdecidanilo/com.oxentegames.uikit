@@ -1,16 +1,16 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace CustomButton
+namespace OxenteGames.UI
 {
     public class SubGraphicTransition : MonoBehaviour
     {
-        [SerializeField] private CustomButtonBase customButton;
+        [SerializeField] private CustomButton customButton;
         [Space, SerializeField] private StateTransition<SelectionState> Transition;
 
         private void Reset()
         {
-            customButton = GetComponentInParent<CustomButtonBase>();
+            customButton = GetComponentInParent<CustomButton>();
             Transition = new StateTransition<SelectionState>();
             TryGetComponent(out Transition.targetGraphic);
         }
