@@ -6,7 +6,7 @@
   "unityRelease": "23f1",
   "description": "A production-ready collection of reusable controls and transitions for Unity UGUI.",
   "author": {
-    "name": "Valdeci Danilo",
+    "name": "Oxente Games",
     "email": "valdecidanilo@live.com",
     "url": "https://github.com/valdecidanilo"
   },
@@ -24,10 +24,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/valdecidanilo/com.oxentegames.custombutton.git"
+    "url": "https://github.com/valdecidanilo/com.oxentegames.uikit.git"
   },
-  "documentationUrl": "https://github.com/valdecidanilo/com.oxentegames.custombutton#readme",
-  "changelogUrl": "https://github.com/valdecidanilo/com.oxentegames.custombutton/blob/latest/CHANGELOG.md",
+  "documentationUrl": "https://github.com/valdecidanilo/com.oxentegames.uikit#readme",
+  "changelogUrl": "https://github.com/valdecidanilo/com.oxentegames.uikit/blob/latest/CHANGELOG.md",
   "samples": [
     {
       "displayName": "Oxente UI Kit Overview",
